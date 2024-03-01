@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <fstream> // Include the library to manage files
-#include <sstream> // Include the library to Split a string
+#include <fstream>      // Include the library to manage files
+#include <sstream>      // Include the library to Split a string
+#include <iomanip>      // std::setprecision
 
 struct Trajectory;
 double SpADeDistance(const Trajectory& , const Trajectory& );
@@ -28,7 +29,7 @@ int main() {
     // Calculate the SpADe distance between the trajectories
     double spadeDist = SpADeDistance(Trajectory1, Trajectory2);
 
-    std::cout << "Distancia SpADe entre las trayectorias: \n" << spadeDist << "\n\n\n";
+    std::cout << std::setprecision(15) << "Distancia SpADe entre las trayectorias: \n" << spadeDist << "\n\n\n";
 
     return 0;
 }
@@ -78,7 +79,7 @@ Trajectory Trajectoryfromfile(std::string nombreArchivo){
 
         // Check if the read was successful
         if (iss.fail()) {
-            std::cerr << "Error reading input." << std::endl;
+            std::cerr << "Error obteniendo la informacion" << std::endl;
         }
         //std::cout << "Distancia SpADe entre las trayectorias: \n" << x << " "<< y << " \n";
         Trajectoryfromfile.x.push_back(x);
